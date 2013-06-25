@@ -1,5 +1,5 @@
-compile: 	
-	gcc -o ecrypt.o -c ecrypt.c	
+compile:
+	gcc -o ecrypt.o -c ecrypt.c
 	gcc -o ecrypt-ref.o -c salsa20-ref.c
 	gcc -o ecrypt-regs.o -c salsa20-regs.c
 	gcc -o ecrypt-merged.o -c salsa20-merged.c
@@ -12,7 +12,7 @@ test1: 	compile
 		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
 		gcc -osalsa20-regs.out test.c -lcrypto ecrypt-regs.o
 		gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
-		gmcs Salsa-csharp-test.cs Salsa20.cs
+		mcs Salsa-csharp-test.cs Salsa20.cs
 
 run: 	test1
 		./salsa20-{name}.out
