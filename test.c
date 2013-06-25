@@ -27,7 +27,7 @@ void test_run(int messageSize, int runs){
 
 
   ECRYPT_ctx x;
-  
+
   random_bytes(m,messageSize);
   random_bytes(k,32);
   random_bytes(v,8);
@@ -52,7 +52,24 @@ void test_run(int messageSize, int runs){
   stopm = clock();
   int clocks = PRINTTIME
 
-  printf( "%f seconds for %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC), messageSize);
+  printf( "---- Encryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC), messageSize);
+
+  int loop;
+  startm = clock();
+  for(loop=0;loop<runs;loop++){
+
+
+    ECRYPT_decrypt_bytes(&x,m,c,messageSize);
+
+    //ECRYPT_ivsetup(&x,v);
+    //ECRYPT_decrypt_bytes(&x,c,d,messageSize);
+
+
+  }
+  stopm = clock();
+  int clocks = PRINTTIME
+
+  printf( "---- Decryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC), messageSize);
 
 }
 
@@ -100,7 +117,7 @@ void withOutput(int messageSize,int log)
 
     if(log){
       printf("Encrypted\n");
-      printf("Preparing for decryption\n");  
+      printf("Preparing for decryption\n");
     }
     ECRYPT_ivsetup(&x,v);
 
@@ -129,7 +146,7 @@ int main()
   test_run(messageSize,100);
 
 
-  
+
 
   return 0;
 }
