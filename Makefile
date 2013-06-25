@@ -22,7 +22,7 @@ runall: test1
 		./salsa20-refs.out
 		./salsa20-regs.out
 		./salsa20-merged.out
-		./Salsa-csharp-test.exe
+		.mono Salsa-csharp-test.exe
 
 clean:
 	rm -rf *o
