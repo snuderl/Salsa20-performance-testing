@@ -1,0 +1,9 @@
+lib: 	test
+	gcc -o ecrypt.o -c ecrypt.c
+
+test: 	a.out
+	gcc bigtest.c  -lssl -lcrypto ecrypt.o
+
+clean:
+	rm -rf *o
+	rm -rf *out
