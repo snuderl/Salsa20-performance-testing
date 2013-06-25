@@ -1,0 +1,50 @@
+using System;
+using System.Security.Cryptography;
+using System.Diagnostics;
+
+namespace SalsaTest{
+
+	public class MainClass{
+			public static void Main(){
+				TestRun(1000,10000);
+				TestRun(10000,1000);
+				TestRun(100000,100);
+
+
+
+
+			}
+
+			public static void TestRun(int messageSize, int runs){
+				Salsa20 salsa = new SalsaTest.Salsa20();
+				salsa.GenerateKey();
+				salsa.GenerateIV();
+
+				byte[] bytes = new byte[messageSize];
+				RandomNumberGenerator rng = new RNGCryptoServiceProvider();
+				rng.GetBytes(bytes);
+
+
+
+				var encryptor = salsa.CreateEncryptor();
+
+				Stopwatch stopWatch = new Stopwatch();
+
+				stopWatch.Start();
+
+				for(int i = 0;i<runs;i++){
+
+					byte[] c = encryptor.TransformFinalBlock(bytes,0,bytes.Length);
+				}
+				stopWatch.Stop();
+				Console.WriteLine((stopWatch.Elapsed.TotalMilliseconds / (runs*1000)) + " seconds for " +messageSize + " bytes");
+
+
+				//var dev = salsa.CreateDecryptor();
+
+				//byte[] m = dev.TransformFinalBlock(c,0,c.Length);
+
+			}
+
+	}
+}

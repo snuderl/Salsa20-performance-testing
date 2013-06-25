@@ -12,6 +12,7 @@ test1: 	compile
 		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
 		gcc -osalsa20-regs.out test.c -lcrypto ecrypt-regs.o
 		gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
+		gmcs Salsa-csharp-test.cs Salsa20.cs
 
 run: 	test1
 		./salsa20-{name}.out
@@ -21,7 +22,9 @@ runall: test1
 		./salsa20-refs.out
 		./salsa20-regs.out
 		./salsa20-merged.out
+		./Salsa-csharp-test.exe
 
 clean:
 	rm -rf *o
 	rm -rf *out
+	rm -rf *exe
