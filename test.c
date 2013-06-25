@@ -54,7 +54,6 @@ void test_run(int messageSize, int runs){
 
   printf( "---- Encryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC), messageSize);
 
-  int loop;
   startm = clock();
   for(loop=0;loop<runs;loop++){
 
@@ -67,7 +66,7 @@ void test_run(int messageSize, int runs){
 
   }
   stopm = clock();
-  int clocks = PRINTTIME
+  clocks = PRINTTIME
 
   printf( "---- Decryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC), messageSize);
 
