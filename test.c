@@ -164,6 +164,9 @@ int main()
 {
   srand(time(NULL));
 
+  printf("Usage before runing.");
+  getUsage();
+
   int messageSize = 1000;
   test_run(messageSize,10000);
   messageSize = 10000;
