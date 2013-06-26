@@ -121,11 +121,11 @@ int main()
   getUsage();
 
   int messageSize = 100;
-  test_run(messageSize,10000);
+  test_run(messageSize,100000);
   messageSize = 1000;
-  test_run(messageSize,1000);
+  test_run(messageSize,10000);
   messageSize = 10000;
-  test_run(messageSize,100);
+  test_run(messageSize,10000);
 
 
 
