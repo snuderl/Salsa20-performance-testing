@@ -6,9 +6,9 @@ namespace SalsaTest{
 
 	public class MainClass{
 			public static void Main(){
-				TestRun(1000,10000);
-				TestRun(10000,1000);
-				TestRun(100000,100);
+				TestRun(100,10000);
+				TestRun(1000,1000);
+				TestRun(10000,100);
 
 
 
