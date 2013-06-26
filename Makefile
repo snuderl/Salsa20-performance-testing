@@ -17,6 +17,12 @@ test1: 	compile
 run: 	test1
 		./salsa20.out
 
+git:
+		git pull
+
+make: git
+			runall
+
 runall: test1
 		./salsa20.out
 		./salsa20-refs.out

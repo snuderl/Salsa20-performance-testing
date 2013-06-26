@@ -39,6 +39,8 @@ void getUsage(){
       }
     }
     fclose(f);
+    free(line);
+    free(vmpeak);
   }
 
 }
