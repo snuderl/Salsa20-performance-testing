@@ -14,6 +14,14 @@ test1: 	compile
 		gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
 		mcs Salsa-csharp-test.cs Salsa20.cs
 
+test2: 	compile
+		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
+		./salsa20.out
+		gcc -osalsa20-refs-Os.out test.c -lcrypto ecrypt-ref.o -Os
+		./salsa20-refs-Os.out
+		gcc -osalsa20-refs-O2.out test.c -lcrypto ecrypt-ref.o -O2
+		./salsa20-refs-O2.out
+
 run:
 		gcc -o ecrypt.o -c ecrypt.c
 		gcc -osalsa20.out test.c -lcrypto ecrypt.o
