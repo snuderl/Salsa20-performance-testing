@@ -83,7 +83,7 @@ void test_run(int messageSize, int runs){
   u8 d[messageSize];
   int clocks = PRINTTIME
 
-  printf( "---- Encryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC*1000), messageSize);
+  printf( "---- Encryption | %f miliseconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC/1000), messageSize);
 
   startm = clock();
   for(loop=0;loop<runs;loop++){
@@ -99,7 +99,7 @@ void test_run(int messageSize, int runs){
   stopm = clock();
   clocks = PRINTTIME
 
-  printf( "---- Decryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC*1000), messageSize);
+  printf( "---- Decryption | %f miliseconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC/1000), messageSize);
 
 }
 
