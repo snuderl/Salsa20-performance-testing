@@ -11,6 +11,7 @@ clock_t startm, stopm;
 #define PRINTTIME (stopm-startm);
 
 
+
 void random_bytes(u8* buffer,size_t size){
   size_t i;
   for(i=0; i < size; i++)
@@ -30,10 +31,10 @@ int getUsage(){
   if (!f) return 0;
 
   while(getline(&line,&len,f)!=NULL){
-    if (strncmp(line, "VmSize:", 7)==0)
+    if (strncmp(line, "VmRSS:", 6)==0)
     {
       vmpeak = strdup(&line[7]);
-      printf("Peak usage: %s", vmpeak);
+      printf("---- Ram usage | %s", vmpeak);
       return 1;
       break;
     }
