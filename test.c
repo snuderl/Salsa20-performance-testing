@@ -61,7 +61,7 @@ void test_run(int messageSize, int runs){
   ECRYPT_keysetup(&x,k,256,64);
   ECRYPT_ivsetup(&x,v);
 
-
+  getUsage();
 
   int loop;
   startm = clock();
