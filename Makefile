@@ -16,13 +16,13 @@ test1: 	compile
 
 memtest:
 		gcc -o ecrypt.o -c ecrypt.c
-		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
+		gcc -osalsa20-refs.out test.c -lcrypto ecrypt.o
 		./salsa20.out
 		gcc -o ecrypt.o -c ecrypt.c -Os
-		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o -Os
+		gcc -osalsa20-refs.out test.c -lcrypto ecrypt.o -Os
 		./salsa20-refs-Os.out
 		gcc -o ecrypt.o -c ecrypt.c -O2
-		gcc -osalsa20-refs-O2.out test.c -lcrypto ecrypt-ref-O2.o -O2
+		gcc -osalsa20-refs-O2.out test.c -lcrypto ecrypt.o -O2
 		./salsa20-refs-O2.out
 
 run:
