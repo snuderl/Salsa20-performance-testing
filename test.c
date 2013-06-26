@@ -17,6 +17,20 @@ void random_bytes(u8* buffer,size_t size){
       buffer[i] = rand() % 255;
 }
 
+
+void getUsage(){
+
+  char *line;
+  size_t len;
+  len = 128;
+
+  f=fopen("/proc/self/statm", "r");
+  while(getline(&line,len,f)!=-1){
+    printf(line);
+  }
+
+}
+
 void test_run(int messageSize, int runs){
 
   u8 m[messageSize];
@@ -49,6 +63,7 @@ void test_run(int messageSize, int runs){
 
 
   }
+  getUsage();
   stopm = clock();
   int clocks = PRINTTIME
 
