@@ -18,7 +18,7 @@ void random_bytes(u8* buffer,size_t size){
 }
 
 
-char line[128];
+char* line;
 char *vmpeak;
 size_t len;
 
