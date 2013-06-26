@@ -45,9 +45,6 @@ int getUsage(){
 
 void test_run(int messageSize, int runs){
 
-  u8 m[messageSize];
-  u8 c[messageSize];
-  u8 d[messageSize];
   u8 k[32];
   u8 v[8];
 
@@ -62,7 +59,10 @@ void test_run(int messageSize, int runs){
 
   getUsage();
 
+
+  u8 m[messageSize];
   random_bytes(m,messageSize);
+  u8 c[messageSize];
 
   int loop;
   startm = clock();
@@ -78,6 +78,9 @@ void test_run(int messageSize, int runs){
   }
   getUsage();
   stopm = clock();
+
+
+  u8 d[messageSize];
   int clocks = PRINTTIME
 
   printf( "---- Encryption | %f seconds | %d bytes.\n", clocks/((double)runs*CLOCKS_PER_SEC), messageSize);
