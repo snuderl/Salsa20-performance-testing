@@ -26,12 +26,12 @@ void getUsage(){
   char *vmpeak;
 
   len = 128;
-  vmpeak = null;
+  vmpeak = NULL;
 
   f=fopen("/proc/self/status", "r");
   if (!f) return 1;
 
-  while(vmpeak != null && getline(&line,&len,f)!=-1){
+  while(vmpeak != NULL && getline(&line,&len,f)!=-1){
     if (!strncmp(line, "VmSize:", 7))
     {
       vmpeak = strdup(&line[7]);
