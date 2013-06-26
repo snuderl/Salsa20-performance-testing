@@ -19,7 +19,7 @@ void random_bytes(u8* buffer,size_t size){
 
 
 
-void getUsage(){
+int getUsage(){
   char *line;
   size_t len;
   FILE *f;
@@ -29,20 +29,18 @@ void getUsage(){
   vmpeak = NULL;
 
   f=fopen("/proc/self/status", "r");
-  if (f){
-    while(vmpeak == NULL && getline(&line,&len,f)!=-1){
-      if (!strncmp(line, "VmSize:", 7))
-      {
-        vmpeak = strdup(&line[7]);
-        printf("Peak usage: %s", vmpeak);
-        break;
-      }
-    }
-    fclose(f);
-    free(line);
-    free(vmpeak);
-  }
+  if (!f) return 0;
 
+  while(vmpeak == NULL && getline(&line,&len,f)!=-1){
+    if (!strncmp(line, "VmSize:", 7))
+    {
+      vmpeak = strdup(&line[7]);
+      printf("Peak usage: %s", vmpeak);
+      break;
+    }
+  }
+  fclose(f);
+  return 1;
 }
 
 void test_run(int messageSize, int runs){

@@ -20,8 +20,6 @@ run: 	test1
 git:
 		git pull
 
-make: git
-			runall
 
 runall: test1
 		./salsa20.out
@@ -29,6 +27,10 @@ runall: test1
 		./salsa20-regs.out
 		./salsa20-merged.out
 		mono Salsa-csharp-test.exe
+
+
+make: git
+			runall
 
 clean:
 	rm -rf *o
