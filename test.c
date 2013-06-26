@@ -34,7 +34,6 @@ void getUsage(){
   while(getline(&line,&len,f)!=-1){
     printf(line);
   }
-  free(line);
   fclose(f);
 
 }
