@@ -23,6 +23,7 @@ void getUsage(){
   char *line;
   size_t len;
   len = 128;
+  FILE *f;
 
   f=fopen("/proc/self/statm", "r");
   while(getline(&line,&len,f)!=-1){
