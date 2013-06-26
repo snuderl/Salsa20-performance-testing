@@ -17,7 +17,7 @@ test1: 	compile
 memtest:
 		gcc -o ecrypt.o -c ecrypt.c
 		gcc -osalsa20-refs.out test.c -lcrypto ecrypt.o
-		./osalsa20-refs.out
+		./salsa20-refs.out
 		gcc -o ecrypt.o -c ecrypt.c -Os
 		gcc -osalsa20-refs-Os.out test.c -lcrypto ecrypt.o -Os
 		./salsa20-refs-Os.out
