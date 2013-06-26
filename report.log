@@ -1,5 +1,3 @@
-git pull
-Already up-to-date.
 gcc -o ecrypt.o -c ecrypt.c
 gcc -o ecrypt-ref.o -c salsa20-ref.c
 gcc -o ecrypt-regs.o -c salsa20-regs.c
@@ -10,70 +8,55 @@ gcc -osalsa20-regs.out test.c -lcrypto ecrypt-regs.o
 gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
 mcs Salsa-csharp-test.cs Salsa20.cs
 Compilation succeeded - 1 warning(s)
-./salsa20.out
-Usage before runing.
----- Ram usage |      364 kB
----- Ram usage |      364 kB
----- Ram usage |      364 kB
----- Encryption | 0.000020 seconds | 1000 bytes.
----- Decryption | 0.000018 seconds | 1000 bytes.
----- Ram usage |      364 kB
----- Ram usage |      364 kB
----- Encryption | 0.000180 seconds | 10000 bytes.
----- Decryption | 0.000180 seconds | 10000 bytes.
----- Ram usage |      620 kB
----- Ram usage |      620 kB
----- Encryption | 0.001900 seconds | 100000 bytes.
----- Decryption | 0.001800 seconds | 100000 bytes.
 ./salsa20-refs.out
 Usage before runing.
 ---- Ram usage |      364 kB
 ---- Ram usage |      364 kB
 ---- Ram usage |      364 kB
----- Encryption | 0.000018 seconds | 1000 bytes.
----- Decryption | 0.000018 seconds | 1000 bytes.
+---- Encryption | 0.002100 miliseconds | 100 bytes.
+---- Decryption | 0.002100 miliseconds | 100 bytes.
 ---- Ram usage |      364 kB
 ---- Ram usage |      364 kB
----- Encryption | 0.000180 seconds | 10000 bytes.
----- Decryption | 0.000170 seconds | 10000 bytes.
+---- Encryption | 0.017000 miliseconds | 1000 bytes.
+---- Decryption | 0.018000 miliseconds | 1000 bytes.
+---- Ram usage |      364 kB
 ---- Ram usage |      620 kB
----- Ram usage |      620 kB
----- Encryption | 0.001700 seconds | 100000 bytes.
----- Decryption | 0.001700 seconds | 100000 bytes.
+---- Encryption | 0.175000 miliseconds | 10000 bytes.
+---- Decryption | 0.175000 miliseconds | 10000 bytes.
 ./salsa20-regs.out
 Usage before runing.
----- Ram usage |      364 kB
----- Ram usage |      364 kB
----- Ram usage |      364 kB
----- Encryption | 0.000013 seconds | 1000 bytes.
----- Decryption | 0.000013 seconds | 1000 bytes.
----- Ram usage |      364 kB
----- Ram usage |      620 kB
----- Encryption | 0.000140 seconds | 10000 bytes.
----- Decryption | 0.000120 seconds | 10000 bytes.
----- Ram usage |      620 kB
----- Ram usage |      620 kB
----- Encryption | 0.001300 seconds | 100000 bytes.
----- Decryption | 0.001200 seconds | 100000 bytes.
+---- Ram usage |      360 kB
+---- Ram usage |      360 kB
+---- Ram usage |      360 kB
+---- Encryption | 0.001600 miliseconds | 100 bytes.
+---- Decryption | 0.001500 miliseconds | 100 bytes.
+---- Ram usage |      360 kB
+---- Ram usage |      360 kB
+---- Encryption | 0.013000 miliseconds | 1000 bytes.
+---- Decryption | 0.013000 miliseconds | 1000 bytes.
+---- Ram usage |      360 kB
+---- Ram usage |      616 kB
+---- Encryption | 0.132000 miliseconds | 10000 bytes.
+---- Decryption | 0.127000 miliseconds | 10000 bytes.
 ./salsa20-merged.out
 Usage before runing.
 ---- Ram usage |      364 kB
 ---- Ram usage |      364 kB
 ---- Ram usage |      364 kB
----- Encryption | 0.000008 seconds | 1000 bytes.
----- Decryption | 0.000009 seconds | 1000 bytes.
+---- Encryption | 0.001500 miliseconds | 100 bytes.
+---- Decryption | 0.001400 miliseconds | 100 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.009000 miliseconds | 1000 bytes.
+---- Decryption | 0.009000 miliseconds | 1000 bytes.
 ---- Ram usage |      364 kB
 ---- Ram usage |      620 kB
----- Encryption | 0.000080 seconds | 10000 bytes.
----- Decryption | 0.000080 seconds | 10000 bytes.
----- Ram usage |      620 kB
----- Ram usage |      620 kB
----- Encryption | 0.000900 seconds | 100000 bytes.
----- Decryption | 0.000800 seconds | 100000 bytes.
+---- Encryption | 0.085000 miliseconds | 10000 bytes.
+---- Decryption | 0.087000 miliseconds | 10000 bytes.
 mono Salsa-csharp-test.exe
----- Encryption | 3.760968E-05 seconds | 1000 bytes
----- Decryption | 4.318515E-05 seconds | 1000 bytes
----- Encryption | 0.0003072746 seconds | 10000 bytes
----- Decryption | 0.0003868419 seconds | 10000 bytes
----- Encryption | 0.002722247 seconds | 100000 bytes
----- Decryption | 0.00279496 seconds | 100000 bytes
+---- Encryption | 0.003539024 seconds | 100 bytes
+---- Decryption | 6.37155E-06 seconds | 100 bytes
+---- Encryption | 0.04070645 seconds | 1000 bytes
+---- Decryption | 3.069805E-05 seconds | 1000 bytes
+---- Encryption | 0.4028528 seconds | 10000 bytes
+---- Decryption | 0.0003836713 seconds | 10000 bytes

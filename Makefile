@@ -35,7 +35,6 @@ git:
 
 
 runall: test1
-		./salsa20.out
 		./salsa20-refs.out
 		./salsa20-regs.out
 		./salsa20-merged.out

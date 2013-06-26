@@ -1,0 +1,51 @@
+gcc -o ecrypt.o -c ecrypt.c
+gcc -osalsa20-refs.out test.c -lcrypto ecrypt.o
+./salsa20-refs.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.002100 miliseconds | 100 bytes.
+---- Decryption | 0.002100 miliseconds | 100 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.019000 miliseconds | 1000 bytes.
+---- Decryption | 0.018000 miliseconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.183000 miliseconds | 10000 bytes.
+---- Decryption | 0.184000 miliseconds | 10000 bytes.
+gcc -o ecrypt.o -c ecrypt.c -Os
+gcc -osalsa20-refs-Os.out test.c -lcrypto ecrypt.o -Os
+./salsa20-refs-Os.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000700 miliseconds | 100 bytes.
+---- Decryption | 0.000600 miliseconds | 100 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.006000 miliseconds | 1000 bytes.
+---- Decryption | 0.005000 miliseconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.053000 miliseconds | 10000 bytes.
+---- Decryption | 0.052000 miliseconds | 10000 bytes.
+gcc -o ecrypt.o -c ecrypt.c -O2
+gcc -osalsa20-refs-O2.out test.c -lcrypto ecrypt.o -O2
+./salsa20-refs-O2.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000600 miliseconds | 100 bytes.
+---- Decryption | 0.000600 miliseconds | 100 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.004000 miliseconds | 1000 bytes.
+---- Decryption | 0.005000 miliseconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.044000 miliseconds | 10000 bytes.
+---- Decryption | 0.047000 miliseconds | 10000 bytes.
