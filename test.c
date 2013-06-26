@@ -29,9 +29,13 @@ void getUsage(){
   len = 128;
 
   f=fopen("/proc/self/statm", "r");
+  if (!f) return 1;
+
   while(getline(&line,&len,f)!=-1){
     printf(line);
   }
+  free(line);
+  fclose(f);
 
 }
 

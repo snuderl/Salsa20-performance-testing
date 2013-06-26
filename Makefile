@@ -15,7 +15,7 @@ test1: 	compile
 		mcs Salsa-csharp-test.cs Salsa20.cs
 
 run: 	test1
-		./salsa20-{name}.out
+		./salsa20.out
 
 runall: test1
 		./salsa20.out
