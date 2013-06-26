@@ -36,6 +36,7 @@ int getUsage(){
     {
       vmpeak = strdup(&line[7]);
       printf("Peak usage: %s", vmpeak);
+      return 1;
       break;
     }
   }

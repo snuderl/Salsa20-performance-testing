@@ -14,7 +14,9 @@ test1: 	compile
 		gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
 		mcs Salsa-csharp-test.cs Salsa20.cs
 
-run: 	test1
+run:
+		gcc -o ecrypt.o -c ecrypt.c
+		gcc -osalsa20.out test.c -lcrypto ecrypt.o
 		./salsa20.out
 
 git:
