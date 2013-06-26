@@ -15,11 +15,14 @@ test1: 	compile
 		mcs Salsa-csharp-test.cs Salsa20.cs
 
 test2: 	compile
+		gcc -o ecrypt.o -c ecrypt.c
 		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
 		./salsa20.out
-		gcc -osalsa20-refs-Os.out test.c -lcrypto ecrypt-ref.o -Os
+		gcc -o ecrypt.o -c ecrypt.c -Os
+		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o -Os
 		./salsa20-refs-Os.out
-		gcc -osalsa20-refs-O2.out test.c -lcrypto ecrypt-ref.o -O2
+		gcc -o ecrypt.o -c ecrypt.c -O2
+		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref-O2.o -O2
 		./salsa20-refs-O2.out
 
 run:
