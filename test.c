@@ -17,13 +17,16 @@ void random_bytes(u8* buffer,size_t size){
       buffer[i] = rand() % 255;
 }
 
+  char *line;
+  size_t len;
+  FILE *f;
 
 void getUsage(){
 
-  char *line;
-  size_t len;
+
+
+
   len = 128;
-  FILE *f;
 
   f=fopen("/proc/self/statm", "r");
   while(getline(&line,&len,f)!=-1){
