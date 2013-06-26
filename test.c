@@ -18,17 +18,18 @@ void random_bytes(u8* buffer,size_t size){
 }
 
 
+char line[128];
+char *vmpeak;
+size_t len;
 
 int getUsage(){
   FILE* file = fopen("/proc/self/status", "r");
-  char line[128];
-  char *vmpeak;
-  size_t len;
+  len = 128;
 
   f=fopen("/proc/self/status", "r");
   if (!f) return 0;
 
-  while(getline(&line,128,f)!=NULL){
+  while(getline(&line,&len,f)!=NULL){
     if (strncmp(line, "VmSize:", 7)==0)
     {
       vmpeak = strdup(&line[7]);
