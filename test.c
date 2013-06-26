@@ -25,7 +25,7 @@ void getUsage(){
   len = 128;
 
   f=fopen("/proc/self/statm", "r");
-  while(getline(&line,len,f)!=-1){
+  while(getline(&line,&len,f)!=-1){
     printf(line);
   }
 
