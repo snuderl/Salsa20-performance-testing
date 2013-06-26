@@ -29,7 +29,7 @@ void getUsage(){
   vmpeak = NULL;
 
   f=fopen("/proc/self/status", "r");
-  if (!f){
+  if (f){
     while(vmpeak == NULL && getline(&line,&len,f)!=-1){
       if (!strncmp(line, "VmSize:", 7))
       {
