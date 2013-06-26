@@ -1,0 +1,79 @@
+git pull
+Already up-to-date.
+gcc -o ecrypt.o -c ecrypt.c
+gcc -o ecrypt-ref.o -c salsa20-ref.c
+gcc -o ecrypt-regs.o -c salsa20-regs.c
+gcc -o ecrypt-merged.o -c salsa20-merged.c
+gcc -osalsa20.out test.c -lcrypto ecrypt.o
+gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
+gcc -osalsa20-regs.out test.c -lcrypto ecrypt-regs.o
+gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
+mcs Salsa-csharp-test.cs Salsa20.cs
+Compilation succeeded - 1 warning(s)
+./salsa20.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000020 seconds | 1000 bytes.
+---- Decryption | 0.000018 seconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000180 seconds | 10000 bytes.
+---- Decryption | 0.000180 seconds | 10000 bytes.
+---- Ram usage |      620 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.001900 seconds | 100000 bytes.
+---- Decryption | 0.001800 seconds | 100000 bytes.
+./salsa20-refs.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000018 seconds | 1000 bytes.
+---- Decryption | 0.000018 seconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000180 seconds | 10000 bytes.
+---- Decryption | 0.000170 seconds | 10000 bytes.
+---- Ram usage |      620 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.001700 seconds | 100000 bytes.
+---- Decryption | 0.001700 seconds | 100000 bytes.
+./salsa20-regs.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000013 seconds | 1000 bytes.
+---- Decryption | 0.000013 seconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.000140 seconds | 10000 bytes.
+---- Decryption | 0.000120 seconds | 10000 bytes.
+---- Ram usage |      620 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.001300 seconds | 100000 bytes.
+---- Decryption | 0.001200 seconds | 100000 bytes.
+./salsa20-merged.out
+Usage before runing.
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Ram usage |      364 kB
+---- Encryption | 0.000008 seconds | 1000 bytes.
+---- Decryption | 0.000009 seconds | 1000 bytes.
+---- Ram usage |      364 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.000080 seconds | 10000 bytes.
+---- Decryption | 0.000080 seconds | 10000 bytes.
+---- Ram usage |      620 kB
+---- Ram usage |      620 kB
+---- Encryption | 0.000900 seconds | 100000 bytes.
+---- Decryption | 0.000800 seconds | 100000 bytes.
+mono Salsa-csharp-test.exe
+---- Encryption | 3.760968E-05 seconds | 1000 bytes
+---- Decryption | 4.318515E-05 seconds | 1000 bytes
+---- Encryption | 0.0003072746 seconds | 10000 bytes
+---- Decryption | 0.0003868419 seconds | 10000 bytes
+---- Encryption | 0.002722247 seconds | 100000 bytes
+---- Decryption | 0.00279496 seconds | 100000 bytes
