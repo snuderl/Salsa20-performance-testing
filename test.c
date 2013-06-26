@@ -20,19 +20,16 @@ void random_bytes(u8* buffer,size_t size){
 
 
 int getUsage(){
-  char *line;
+  FILE* file = fopen("/proc/self/status", "r");
+  char line[128];
+  char* vmpeak;
   size_t len;
-  FILE *f;
-  char *vmpeak;
-
-  len = 128;
-  vmpeak = NULL;
 
   f=fopen("/proc/self/status", "r");
   if (!f) return 0;
 
-  while(vmpeak == NULL && getline(&line,&len,f)!=-1){
-    if (!strncmp(line, "VmSize:", 7))
+  while(getline(&line,128,f)!=NULL){
+    if (strncmp(line, "VmSize:", 7)==0)
     {
       vmpeak = strdup(&line[7]);
       printf("Peak usage: %s", vmpeak);

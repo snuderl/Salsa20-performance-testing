@@ -31,8 +31,7 @@ runall: test1
 		mono Salsa-csharp-test.exe
 
 
-make: git
-			runall
+make: git runall
 
 clean:
 	rm -rf *o
