@@ -14,7 +14,7 @@ test1: 	compile
 		gcc -osalsa20-merged.out test.c -lcrypto ecrypt-merged.o
 		mcs Salsa-csharp-test.cs Salsa20.cs
 
-test2: 	compile
+memtest:
 		gcc -o ecrypt.o -c ecrypt.c
 		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o
 		./salsa20.out
@@ -22,7 +22,7 @@ test2: 	compile
 		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref.o -Os
 		./salsa20-refs-Os.out
 		gcc -o ecrypt.o -c ecrypt.c -O2
-		gcc -osalsa20-refs.out test.c -lcrypto ecrypt-ref-O2.o -O2
+		gcc -osalsa20-refs-O2.out test.c -lcrypto ecrypt-ref-O2.o -O2
 		./salsa20-refs-O2.out
 
 run:
