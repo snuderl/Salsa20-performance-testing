@@ -23,7 +23,7 @@ char *vmpeak;
 size_t len;
 
 int getUsage(){
-  FILE* file = fopen("/proc/self/status", "r");
+  FILE* f = fopen("/proc/self/status", "r");
   len = 128;
 
   f=fopen("/proc/self/status", "r");
