@@ -22,7 +22,7 @@ void random_bytes(u8* buffer,size_t size){
 int getUsage(){
   FILE* file = fopen("/proc/self/status", "r");
   char line[128];
-  char* vmpeak;
+  char *vmpeak;
   size_t len;
 
   f=fopen("/proc/self/status", "r");
