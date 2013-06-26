@@ -29,17 +29,17 @@ void getUsage(){
   vmpeak = NULL;
 
   f=fopen("/proc/self/status", "r");
-  if (!f) return 1;
-
-  while(vmpeak != NULL && getline(&line,&len,f)!=-1){
-    if (!strncmp(line, "VmSize:", 7))
-    {
-      vmpeak = strdup(&line[7]);
-      printf("Peak usage: %s", vmpeak);
-      break;
+  if (!f){
+    while(vmpeak == NULL && getline(&line,&len,f)!=-1){
+      if (!strncmp(line, "VmSize:", 7))
+      {
+        vmpeak = strdup(&line[7]);
+        printf("Peak usage: %s", vmpeak);
+        break;
+      }
     }
+    fclose(f);
   }
-  fclose(f);
 
 }
 
