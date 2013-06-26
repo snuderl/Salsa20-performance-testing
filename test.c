@@ -54,7 +54,6 @@ void test_run(int messageSize, int runs){
 
   ECRYPT_ctx x;
 
-  random_bytes(m,messageSize);
   random_bytes(k,32);
   random_bytes(v,8);
 
@@ -62,6 +61,8 @@ void test_run(int messageSize, int runs){
   ECRYPT_ivsetup(&x,v);
 
   getUsage();
+
+  random_bytes(m,messageSize);
 
   int loop;
   startm = clock();
