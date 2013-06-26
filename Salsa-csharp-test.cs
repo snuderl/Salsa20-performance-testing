@@ -38,7 +38,7 @@ namespace SalsaTest{
 					c = encryptor.TransformFinalBlock(bytes,0,bytes.Length);
 				}
 				stopWatch.Stop();
-				Console.WriteLine("---- Encryption | " + (stopWatch.Elapsed.TotalMilliseconds / (runs*1000)) + " seconds | " +messageSize + " bytes");
+				Console.WriteLine("---- Encryption | " + (stopWatch.Elapsed.TotalMilliseconds / (runs)) + " seconds | " +messageSize + " bytes");
 
 				c = encryptor.TransformFinalBlock(bytes,0,bytes.Length);
 				var dev = salsa.CreateDecryptor();
