@@ -24,14 +24,14 @@ char *vmpeak;
 size_t len;
 
 int getUsage(){
-  FILE* f = fopen("/proc/self/status", "r");
+  FILE* f;
   len = 128;
 
   f=fopen("/proc/self/status", "r");
   if (!f) return 0;
 
   while(getline(&line,&len,f)!=NULL){
-    if (strncmp(line, "VmRSS:", 6)==0)
+    if (strncmp(line, "VmHWM:", 6)==0)
     {
       vmpeak = strdup(&line[7]);
       printf("---- Ram usage | %s", vmpeak);
@@ -110,57 +110,6 @@ void checkSame(u8 *d,u8 *m,int messageSize){
       if (d[i] != m[i]) err++;
     if (err>0){
       printf("ERROR\n");
-    }
-}
-
-void withOutput(int messageSize,int log)
-{
-
-    u8 m[messageSize];
-    u8 c[messageSize];
-    u8 d[messageSize];
-    u8 k[32];
-    u8 v[8];
-
-    if(log){
-    ///Fill message with random bytes
-    printf("Generating random message, key and IV\n");
-    }
-    random_bytes(m,messageSize);
-    random_bytes(k,32);
-    random_bytes(v,8);
-    if(log)  printf("Initializing Salsa20\n");
-
-    ECRYPT_ctx x;
-    ECRYPT_keysetup(&x,k,256,64);
-    ECRYPT_ivsetup(&x,v);
-
-    if(log){
-      printf("Initialized.....\n");
-      printf("Encrypting\n");
-    }
-
-    START;
-    ECRYPT_encrypt_bytes(&x,m,c,messageSize);
-    STOP;
-    PRINTTIME;
-
-    if(log){
-      printf("Encrypted\n");
-      printf("Preparing for decryption\n");
-    }
-    ECRYPT_ivsetup(&x,v);
-
-    if(log){
-      printf("Decrypting\n");
-    }
-    START;
-    ECRYPT_decrypt_bytes(&x,c,d,messageSize);
-    STOP;
-    PRINTTIME;
-
-    if(log){
-      printf("Decrypted\n");
     }
 }
 
